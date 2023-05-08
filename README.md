@@ -1,66 +1,26 @@
 # Abstract
 
-2023/5/6~5/7で開催されたChatGPTのAPIを活用したシステムを開発するハッカソンである、[HackGPT](https://hackgpt.tokyo)において共同開発したLINEで送信された画像を解析してメニューを提案するシステムのソースコードです。
+2023/5/6~5/7で開催されたChatGPTのAPIを活用したシステムを開発するハッカソンである[HackGPT](https://hackgpt.tokyo)において共同開発した、LINEで送信された画像を解析してメニューを提案するbotのソースコードです。投票にて全13チーム中2位をいただきました！
 
-# DEMO
  
-You can learn how to making cute physics simulations (looks retro game).
- 
-![](https://cpp-learning.com/wp-content/uploads/2019/05/pyxel-190505-161951.gif)
- 
-This animation is a "Cat playing on trampoline"!
-You can get basic skills for making physics simulations.
- 
-# Features
- 
-Physics_Sim_Py used [pyxel](https://github.com/kitao/pyxel) only.
- 
-```python
-import pyxel
-```
-[Pyxel](https://github.com/kitao/pyxel) is a retro game engine for Python.
-You can feel free to enjoy making pixel art style physics simulations.
- 
-# Requirement
- 
-* Python 3.6.5
-* pyxel 1.0.2
- 
-Environments under [Anaconda for Windows](https://www.anaconda.com/distribution/) is tested.
- 
-```bash
-conda create -n pyxel pip python=3.6 Anaconda
-activate pyxel
-```
- 
-# Installation
- 
-Install Pyxel with pip command.
- 
-```bash
-pip install pyxel
-```
+# Setup
+
+Botの作成手順を示します。
+
+1. Line Developersにログインしていただき、Providerを作成、Create New ChannelからMessaging APIを選択してChatBotを作成します。この時Messaging API > Channel access tokenからアクセストークンを取得してください。
+
+2. Googleにログインして、Google App Scriptに本レポジトリ上の`hack_gpt_groupE.gs`ファイルの中身を貼り付けます。
+`GPT_TOKEN`, `LINE_TOKEN`, `GOOGLE_API_KEY`へそれぞれ取得したAPIキーを入れます。
+
+3. `Deploy`からWeb Appとしてデプロイしてください。この時表示される`https://script.google.com`から始まるURLをLine DevelopersのWebhook URLへ貼り付けます。
+
  
 # Usage
- 
-Please create gas code named under your local environment.
-And copy &amp; paste [Day4 tutorial code](https://cpp-learning.com/pyxel_physical_sim4/).
- 
-Run "demo.py"
- 
-```bash
-python demo.py
-```
+
+Botとのトーク画面に食材の写真を送るだけで、それらの食材を使った料理のメニューと完成イメージ図が送信されてきます。
+
  
 # Note
- 
-I don't test environments under Linux and Mac.
- 
 
-# License
- 
-"Physics_Sim_Py" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-Enjoy making cute physics simulations!
- 
-Thank you!
+プロンプトは英語で作成しました。やはりOpenAIのサービスを使うにあたって日本語での学習量が少ないようで、英語で答えてもらう方が処理が正確ですし、高速です。
+プロンプトはmessagesの中をいじってもらえれば変えられます。色々と工夫してみてください。
